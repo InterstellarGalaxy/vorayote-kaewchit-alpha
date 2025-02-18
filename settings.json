@@ -1,0 +1,13 @@
+{
+    "compile-hero.disable-compile-files-on-did-save-code": false,
+    
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "expanded",
+            "extensionName": ".css",
+            "savePath": "/dist"
+        }
+    ],
+
+    "liveServer.settings.CustomBrowser": "chrome"  // Add this for setting Chrome as the default browser
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="Explore the creative work of Vorayote Kaewchit, featuring fashion styling, design projects, and artistic content creation.">
+    <link rel="icon" type="image/png" sizes="64x64" href="/images/VABICON1.png">
+    <link rel="stylesheet" href="/dist/style.css" onerror="this.onerror=null; this.href='/dist/fallback-style.css';">
+    <title>Home</title>
+    <style>
+        /* Fonts */
+        @font-face {
+            font-family: 'Cascadia Code';
+            src: url('/fonts/Cascadia.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+      
+        body {
+            font-family: 'Cascadia Code', monospace;
+            padding: 40px 20px 5px 20px;
+            background-image: Url('/images/GIFS/WG8P.gif');
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .dark-mode {
+            background-color: black;
+            color: white;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Header Styles */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 5px 0;
+            background-color: rgb(254, 254, 254);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .header__logo img {
+            margin-left: 10px;
+            max-width: 300px;
+            height: auto;
+            transition: opacity 0.3s ease;
+        }
+
+        .header__links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .header__links a {
+            color: black;
+            transition: color 0.3s ease;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        .header__links a:hover {
+            color: #45ff20;
+        }   
+
+        .dark-mode .header__links a {
+            color: white;
+        }
+
+        .invert-button {
+            margin-right: 20px;
+            padding: 8px 18px;
+            background-color: #45ff20;
+            color: black;
+            border: none;
+            border-radius: 60px;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .invert-button:hover {
+            background-color: #afef88;
+        }
+
+        .header-inverted {
+            background-color: black;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            border-radius: 30px;
+            margin-top: 50px;
+            text-align: center;
+            padding: 60px 20px;
+            background-color: #f8f8f8;
+            transition: background-color 0.3s ease;
+        }
+
+        .dark-mode .hero {
+            background-color: #333;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 10px auto;
+        }
+
+        /* About Me Section */
+        #about {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin: 0 auto 20px;
+            max-width: 700px;
+        }
+
+        /* CTA Button */
+        .cta-btn {
+            background-color: #45ff20;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #afef88;
+        }
+
+        /* Attribution Section */
+        .attribution {
+            font-size: 0.875rem;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .attribution a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .attribution a:hover {
+            color: #45ff20;
+        }
+
+        .dark-mode .attribution a {
+            color: #cccccc;
+        }
+
+        .dark-mode .cta-btn:hover {
+            background-color: #45ff20;
+        }
+
+        /* Responsive Styles */
+        @media screen and (min-width: 768px) {
+            .hide-for-desktop {
+                display: none;
+            }
+        }
+
+        @media screen and (max-width: 767px) {
+            .hide-for-mobile {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            #about h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        .header__links a.active {
+            color: #45ff20;
+            font-weight: bold;
+            border-bottom: 2px solid #45ff20;
+            padding-bottom: 5px;
+        }
+
+        @media screen and (max-width: 767px) {
+            .invert-button-container {
+                margin: 5px;
+                text-align: center;
+            }
+        }
+
+        /* Hamburger Icon */
+            .hamburger {
+                margin: 0 20px 0 0;
+                display: none;
+                flex-direction: column;
+                justify-content: space-around;
+                width: 35px;
+                height: 25px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                z-index: 1000;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 100%;
+                height: 4px;
+                background-color: black;
+                border-radius: 2px;
+                transition: transform 0.3s ease, background-color 0.3s ease;
+            }
+
+            /* Menu Open - Hamburger Icon turns into an "X" */
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            /* Navigation Links - Hidden by default on mobile */
+            #nav-links {
+                display: flex;
+                gap: 15px;
+            }
+
+            @media screen and (max-width: 767px) {
+            /* Hamburger Icon - Visible on mobile */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Mobile Menu - Initially Hidden */
+            #nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                padding: 10px 0;
+                z-index: 999;
+            }
+
+            /* Show Menu when Active */
+            #nav-links.active {
+                display: flex;
+            }
+
+            #nav-links a {
+                padding: 10px 20px;
+                text-align: center;
+                color: black;
+                text-decoration: none;
+                transition: background-color 0.3s ease;
+            }
+
+            #nav-links a:hover {
+                background-color: #45ff20;
+                color: white;
+            }
+        }    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="flex" role="navigation">
+            <a href="/" class="header__logo">
+                <img id="logo" src="/images/VORAYOTE KAEWCHIT BLACK LOGO.png" alt="Homepage - Vorayote Kaewchit Logo" data-theme="dark">
+            </a>                      
+
+            <!-- Hamburger Menu Icon -->
+            <button class="hamburger hide-for-desktop" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="header__links hide-for-mobile" id="nav-links">
+                <a href="index.html" class="active" aria-current="page">Home</a>
+                <a href="shop.html">Shop</a>
+                <a href="work.html">Work</a>
+                <a href="about.html">About</a>
+            </div>
+
+            <div class="invert-button-container hide-for-mobile">
+                <button class="invert-button" onclick="invertColors()">
+                    Invert Colors
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Your destination for unique, high-quality fashion and creative projects. Explore my work, shop collections, and connect with me for collaborations.</p>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I'm Vorayote Kaewchit, a multidisciplinary designer with expertise in fashion styling, digital content creation, and full-stack development. My passion lies in merging grunge aesthetics with industrial design, creating a fresh and impactful style.</p>
+            <a href="about.html" class="cta-btn">Learn More</a>
+        </section>
+
+        <canvas id="canvas"></canvas>
+    </main>
+
+    <div class="attribution">
+        Coded by <a href="about.html">Vorayote Kaewchit</a>
+        <p>&copy; 2024 Vorayote Kaewchit. All rights reserved.</p>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        function invertColors() {
+            try {
+                const body = document.body;
+                const header = document.querySelector('.header');
+                const logo = document.getElementById('logo');
+    
+                body.classList.toggle('dark-mode');
+                header.classList.toggle('header-inverted');
+    
+                if (logo.getAttribute("data-theme") === "dark") {
+                    logo.src = "/images/VORAYOTE KAEWCHIT WHITE LOGO.png";
+                    logo.setAttribute("data-theme", "light");
+                } else {
+                    logo.src = "/images/VORAYOTE KAEWCHIT BLACK LOGO.png";
+                    logo.setAttribute("data-theme", "dark");
+                }
+            } catch (error) {
+                console.error("Error toggling colors: ", error);
+                alert("An error occurred while toggling the color mode.");
+            }
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('hamburger');
+            const navLinks = document.getElementById('nav-links');
+    
+            hamburger.addEventListener('click', function() {
+                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', !isExpanded);
+            });
+        });
+
+        // Your JavaScript code starts here
+
+    const state = {
+        fps: 60,
+        color: "#0f0",
+        charset: "0123456789abcdef",
+        size: 15
+    };
+
+    const gui = new dat.GUI();
+    gui.add(state, "fps").min(1).max(120).step(1);
+    gui.addColor(state, "color");
+    gui.add(state, "charset");
+    gui.add(state, "size").min(5).max(50).step(1);
+
+    const canvas = document.getElementById("canvas");
+    const ctx = canvas.getContext("2d");
+
+    let w, h, columns, drops;
+
+    const resize = () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+
+        columns = Math.floor(w / state.size);
+        drops = Array(columns).fill(0); // Initialize drop positions
+    };
+
+    const drawMatrix = () => {
+        ctx.fillStyle = `rgba(0, 0, 0, 0.05)`; // Slightly fade the canvas
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.font = `${state.size}px 'Cascadia Code', monospace`;
+        ctx.fillStyle = state.color;
+
+        drops.forEach((y, i) => {
+            const char = state.charset[Math.floor(Math.random() * state.charset.length)];
+            const x = i * state.size;
+
+            ctx.fillText(char, x, y * state.size);
+
+            if (y * state.size > h || Math.random() > 0.98) {
+                drops[i] = 0; // Reset the drop to the top
+            } else {
+                drops[i]++;
+            }
+        });
+    };
+
+    window.addEventListener("resize", resize);
+    resize();
+
+    const loop = () => {
+        setTimeout(() => {
+            drawMatrix();
+            requestAnimationFrame(loop);
+        }, 1000 / state.fps);
+    };
+    loop();
+    </script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
+</body>
+</html>
